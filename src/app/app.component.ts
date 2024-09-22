@@ -13,3 +13,5 @@ export class AppComponent {
   Name = 'Vedang Shah';
   Age= '20';
 }
+
+
