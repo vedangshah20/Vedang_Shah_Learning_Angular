@@ -1,3 +1,17 @@
-<h1>{{ title }}</h1>
-<p>{{ Name}}</p>
-<p>Version: {{ Age}}</p>
+<div class="container">
+  <h2>{{ title }}</h2>
+    <div *ngFor="let GamingConsole of [console1, console2, console3, console4, console5, console6]">
+      <div>
+        <h3>{{ GamingConsole.Brand }} - {{ GamingConsole.model }}</h3>
+        <p>Release Year: {{ GamingConsole.releaseYear }}</p>
+        <p>Storage Capacity: {{ GamingConsole.storageCapacity }} GB</p>
+        <div [ngSwitch]="GamingConsole.hasVRSupport">
+          <p *ngSwitchCase="true">This console supports VR.</p>
+          <p *ngSwitchCase="false">This console does not support VR.</p>
+        </div>
+
+      </div>
+      <hr />
+    </div>
+  </div>
+
