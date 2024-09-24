@@ -8,6 +8,7 @@
         <div [ngSwitch]="GamingConsole.hasVRSupport">
           <p *ngSwitchCase="true">This console supports VR.</p>
           <p *ngSwitchCase="false">This console does not support VR.</p>
+          <app-content-list></app-content-list>
         </div>
 
       </div>
