@@ -1,0 +1,22 @@
+<p>console-list works!</p>
+
+<table>
+  <thead>
+  <tr>
+    <th>Brand</th>
+    <th>Model</th>
+    <th>Release Year</th>
+    <th>Storage Capacity</th>
+    <th>VR Support</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let console of gamingConsoleList">
+    <td>{{ console.Brand }}</td>
+    <td>{{ console.model }}</td>
+    <td>{{ console.releaseYear }}</td>
+    <td>{{ console.storageCapacity }} GB</td>
+    <td>{{ console.hasVRSupport ? 'Yes' : 'No' }}</td>
+  </tr>
+  </tbody>
+</table>
