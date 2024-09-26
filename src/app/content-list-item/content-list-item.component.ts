@@ -8,6 +8,10 @@ import {GamingConsole} from "../GamingConsole";
   templateUrl: './content-list-item.component.html',
   styleUrl: './content-list-item.component.css'
 })
+
+
 export class ContentListItemComponent {
-  @Input() console?: GamingConsole;
+  @Input() gamingConsole!: GamingConsole;  // Input property to accept console data
 }
+
+
