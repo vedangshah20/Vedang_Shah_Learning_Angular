@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import {GamingConsole} from "../GamingConsole";
-import {NgForOf} from "@angular/common";
+import {NgClass, NgForOf} from "@angular/common";
 import {ContentListItemComponent} from "../content-list-item/content-list-item.component";
 
 @Component({
@@ -8,7 +8,8 @@ import {ContentListItemComponent} from "../content-list-item/content-list-item.c
   standalone: true,
   imports: [
     NgForOf,
-    ContentListItemComponent
+    ContentListItemComponent,
+    NgClass
   ],
   templateUrl: './content-list.component.html',
   styleUrl: './content-list.component.css'

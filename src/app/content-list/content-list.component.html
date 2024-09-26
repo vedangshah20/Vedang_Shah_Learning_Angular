@@ -1,5 +1,5 @@
-<app-content-list-item [gamingConsole]="gamingConsoleList[0]"></app-content-list-item>
-<app-content-list-item [gamingConsole]="gamingConsoleList[1]"></app-content-list-item>
-<app-content-list-item [gamingConsole]="gamingConsoleList[2]"></app-content-list-item>
-<app-content-list-item [gamingConsole]="gamingConsoleList[3]"></app-content-list-item>
-<app-content-list-item [gamingConsole]="gamingConsoleList[4]"></app-content-list-item>
+<ul>
+  <li *ngFor="let console of gamingConsoleList; odd as isOdd; even as isEven">
+    <app-content-list-item [gamingConsole]="console" [isOdd]="isOdd"></app-content-list-item>
+  </li>
+</ul>
