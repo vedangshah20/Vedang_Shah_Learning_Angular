@@ -1,0 +1,7 @@
+.console-item {
+  border: 2px solid black; /* 2-pixel solid border */
+  padding: 10px;          /* Add some padding inside the border */
+  margin: 10px;           /* Add some margin between items */
+  background-color: #f9f9f9;
+  border-radius: 5px;
+}
