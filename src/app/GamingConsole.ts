@@ -1,7 +1,7 @@
 
 export interface GamingConsole{
   id: number;
-  Brand: string;
+  brand: string;
   model: string;
   releaseYear: number;
   storageCapacity: number;
