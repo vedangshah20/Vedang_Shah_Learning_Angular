@@ -18,7 +18,7 @@ export class AppComponent implements OnInit {
 
   selectedConsole?: GamingConsole; // Selected console for display
   gamingConsoleList: GamingConsole[] = []; // List of gaming consoles
-  selectedConsoleId = 2; // Choose the ID you want to display
+  selectedConsoleId = 4; // Choose the ID you want to display
 
   constructor(private gamingConsoleService: GamingConsoleService) {}
 
