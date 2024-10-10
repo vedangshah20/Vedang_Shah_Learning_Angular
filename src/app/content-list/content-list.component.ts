@@ -1,32 +1,36 @@
 import { Component, OnInit } from '@angular/core';
-import { GamingConsoleService } from '../services/gaming-console.service';
 import { GamingConsole } from '../GamingConsole';
-import { NgClass, NgForOf } from '@angular/common';
+import { NgForOf } from '@angular/common';
 import { ContentListItemComponent } from '../content-list-item/content-list-item.component';
+import { GamingConsoleService } from '../services/gaming-console.service';
 
 @Component({
   selector: 'app-content-list',
   standalone: true,
   imports: [
     NgForOf,
-    ContentListItemComponent,
-    NgClass
+    ContentListItemComponent
   ],
   templateUrl: './content-list.component.html',
   styleUrls: ['./content-list.component.css']
 })
 export class ContentListComponent implements OnInit {
-  gamingConsoles: GamingConsole[] = [];
+  gamingConsoleList: GamingConsole[] = [];
+  selectedConsole?: GamingConsole; // Property to hold the selected console
 
-  // Inject the GamingConsoleService
-  constructor(private gamingConsoleService: GamingConsoleService) {}
+  constructor(private gamingConsoleService: GamingConsoleService) {
+    // This constructor is primarily used for dependency injection
+  }
 
   ngOnInit(): void {
-    // Fetch data and initialize gamingConsoles array
     this.gamingConsoleService.getContent().subscribe({
-      next: (data: GamingConsole[]) => this.gamingConsoles = data,
+      next: (data: GamingConsole[]) => this.gamingConsoleList = data,
       error: err => console.error("Error fetching Gaming Consoles", err),
       complete: () => console.log("Gaming console data fetch complete!")
     });
+  }
+
+  selectConsole(console: GamingConsole): void {
+    this.selectedConsole = console; // Method to set the selected console
   }
 }
