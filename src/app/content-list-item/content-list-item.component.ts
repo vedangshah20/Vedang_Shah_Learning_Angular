@@ -1,12 +1,13 @@
 import {Component, Input} from '@angular/core';
 import {GamingConsole} from "../GamingConsole";
-import {NgClass} from "@angular/common";
+import {NgClass, NgOptimizedImage} from "@angular/common";
 
 @Component({
   selector: 'app-content-list-item',
   standalone: true,
   imports: [
-    NgClass
+    NgClass,
+    NgOptimizedImage
   ],
   templateUrl: './content-list-item.component.html',
   styleUrl: './content-list-item.component.css'

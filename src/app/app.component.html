@@ -6,9 +6,24 @@
     <app-content-list-item [gamingConsole]="selectedConsole"></app-content-list-item>
   </div>
 
+  <nav>
+    <ul>
+      <li><a routerLink="/">Home</a></li>
+      <li><a routerLink="/modify-list-item">Modify List Item</a></li>
+    </ul>
+  </nav>
+  <router-outlet></router-outlet>
+
 
   <div *ngFor="let gamingConsole of gamingConsoleList">
     <app-content-list-item [gamingConsole]="gamingConsole"></app-content-list-item>
+    <img
+      [ngSrc]="'/' + gamingConsole.imageUrl"
+      alt="{{ gamingConsole.model }} Console"
+      width="598"
+      height="360"
+    />
     <hr />
   </div>
 </div>
+

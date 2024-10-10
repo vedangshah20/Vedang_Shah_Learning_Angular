@@ -6,4 +6,5 @@ export interface GamingConsole{
   releaseYear: number;
   storageCapacity: number;
   hasVRSupport: boolean;
+  imageUrl: string;
 }

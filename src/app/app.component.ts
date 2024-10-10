@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import {RouterLink, RouterOutlet} from '@angular/router';
 import { GamingConsole } from "./GamingConsole";
-import {NgFor, NgIf} from "@angular/common";
+import {NgFor, NgIf, NgOptimizedImage} from "@angular/common";
 import { ContentListComponent } from "./content-list/content-list.component";
 import { ContentListItemComponent } from "./content-list-item/content-list-item.component";
 import { GamingConsoleService } from './services/gaming-console.service';
@@ -9,7 +9,7 @@ import { GamingConsoleService } from './services/gaming-console.service';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, NgFor, ContentListComponent, ContentListItemComponent, NgIf],
+  imports: [RouterOutlet, NgFor, ContentListComponent, ContentListItemComponent, NgIf, RouterLink, NgOptimizedImage],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
