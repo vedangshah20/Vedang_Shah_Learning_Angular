@@ -1,17 +1,14 @@
 <div class="container">
   <h2>{{ title }}</h2>
-    <div *ngFor="let GamingConsole of [console1, console2, console3, console4, console5, console6]">
-      <div>
-        <h3>{{ GamingConsole.Brand }} - {{ GamingConsole.model }}</h3>
-        <p>Release Year: {{ GamingConsole.releaseYear }}</p>
-        <p>Storage Capacity: {{ GamingConsole.storageCapacity }} GB</p>
-        <div [ngSwitch]="GamingConsole.hasVRSupport">
-          <p *ngSwitchCase="true">This console supports VR.</p>
-          <p *ngSwitchCase="false">This console does not support VR.</p>
-        </div>
-        <app-content-list></app-content-list>
-      </div>
-      <hr />
-    </div>
+
+  <!-- Display the selected console details -->
+  <div *ngIf="selectedConsole">
+    <app-content-list-item [gamingConsole]="selectedConsole"></app-content-list-item>
   </div>
 
+
+  <div *ngFor="let gamingConsole of gamingConsoleList">
+    <app-content-list-item [gamingConsole]="gamingConsole"></app-content-list-item>
+    <hr />
+  </div>
+</div>

@@ -18,6 +18,8 @@ export class ContentListItemComponent {
   @Input() isOdd!: boolean; // accept the gaming console data and the isOdd boolean,
                              // which indicates if the item is odd.
 
+  @Input() console!: GamingConsole | undefined;
+
 }
 
 

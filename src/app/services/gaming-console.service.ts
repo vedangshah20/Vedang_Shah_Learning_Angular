@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { GamingConsole } from '../GamingConsole';
 import { MockContent } from '../data/mock-content';
@@ -7,39 +7,44 @@ import { MockContent } from '../data/mock-content';
   providedIn: 'root'
 })
 export class GamingConsoleService {
-  private gamingConsoles: GamingConsole[] = MockContent.gamingConsoleList; // Local copy of gaming consoles for CRUD operations
+  private gamingConsoles: GamingConsole[] = MockContent.gamingConsoleList;
 
   constructor() {}
 
-  // Return an Observable of the gaming console list from MockContent
+  // Retrieve all gaming consoles
   getContent(): Observable<GamingConsole[]> {
-    return of(this.gamingConsoles); // Return the observable of the gaming consoles array
+    return of(this.gamingConsoles);
   }
 
-  // Create: Add a new gaming console
+  // Add a new gaming console
   addConsole(newConsole: GamingConsole): Observable<GamingConsole[]> {
-    this.gamingConsoles.push(newConsole); // Add the new console to the array
-    return of(this.gamingConsoles); // Return the updated array as observable
+    this.gamingConsoles.push(newConsole);
+    return of(this.gamingConsoles);
   }
 
   // Update an existing gaming console
   updateConsole(updatedConsole: GamingConsole): Observable<GamingConsole[]> {
     const index = this.gamingConsoles.findIndex(console => console.id === updatedConsole.id);
     if (index !== -1) {
-      this.gamingConsoles[index] = updatedConsole; // Update the console in the array
+      this.gamingConsoles[index] = updatedConsole;
     }
-    return of(this.gamingConsoles); // Return the updated array as observable
+    return of(this.gamingConsoles);
   }
 
-  // Delete: Remove a gaming console by ID
+  // Delete a gaming console by ID
   deleteConsole(consoleId: number): Observable<GamingConsole[]> {
-    this.gamingConsoles = this.gamingConsoles.filter(console => console.id !== consoleId); // Filter out the console by ID
-    return of(this.gamingConsoles); // Return the updated array as observable
+    this.gamingConsoles = this.gamingConsoles.filter(console => console.id !== consoleId);
+    return of(this.gamingConsoles);
   }
 
-  // Read: Get a gaming console by ID
+  // Retrieve a gaming console by ID
+  // @ts-ignore
   getConsoleById(consoleId: number): Observable<GamingConsole | undefined> {
-    const console = this.gamingConsoles.find(item => item.id === consoleId); // Find the console by ID
-    return of(console); // Return the found console or undefined
-  }
+    const console = this.gamingConsoles.find(c => c.id === consoleId);
+    if (console) {
+      return of(console);
+
+    }}
+
+
 }
