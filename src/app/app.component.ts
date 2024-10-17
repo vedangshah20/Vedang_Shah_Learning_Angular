@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {RouterLink, RouterOutlet} from '@angular/router';
+import {RouterLink, RouterLinkActive, RouterOutlet} from '@angular/router';
 import { GamingConsole } from "./GamingConsole";
 import {NgFor, NgIf, NgOptimizedImage} from "@angular/common";
 import { ContentListComponent } from "./content-list/content-list.component";
@@ -9,7 +9,7 @@ import { GamingConsoleService } from './services/gaming-console.service';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, NgFor, ContentListComponent, ContentListItemComponent, NgIf, RouterLink, NgOptimizedImage],
+  imports: [RouterOutlet, NgFor, ContentListComponent, ContentListItemComponent, NgIf, RouterLink, NgOptimizedImage, RouterLinkActive],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
@@ -18,7 +18,7 @@ export class AppComponent implements OnInit {
 
   selectedConsole?: GamingConsole; // Selected console for display
   gamingConsoleList: GamingConsole[] = []; // List of gaming consoles
-  selectedConsoleId = 4; // Choose the ID you want to display
+  selectedConsoleId = 2; // Choose the ID you want to display
 
   constructor(private gamingConsoleService: GamingConsoleService) {}
 

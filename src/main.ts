@@ -11,10 +11,10 @@ import {ModifyListItemComponent} from "./app/modify-list-item/modify-list-item.c
 
 
 const routes: Route[] = [
-  { path: '', component: ContentListComponent  },   // Default route
+  { path: 'content-list-component', component: ContentListComponent  },// Default route
   { path: 'about', component: ContentListItemComponent },
   { path: 'modify-list-item', component: ModifyListItemComponent }, // New route
-  { path: '**', component: PageNotFoundComponent }
+  {path: 'page-not-found', component: PageNotFoundComponent },//added page not found
 ];
 
 bootstrapApplication(AppComponent, appConfig)
