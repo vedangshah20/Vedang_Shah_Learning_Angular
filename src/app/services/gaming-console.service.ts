@@ -10,7 +10,7 @@ export class GamingConsoleService {
   private gamingConsoles: GamingConsole[] = MockContent.gamingConsoleList;
 
   constructor() {}
-
+//curd operations
   // Retrieve all gaming consoles
   getContent(): Observable<GamingConsole[]> {
     return of(this.gamingConsoles);
