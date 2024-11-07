@@ -4,4 +4,9 @@
   <p>Storage Capacity: {{ gamingConsole.storageCapacity }} GB</p>
   <p>VR Support: {{ gamingConsole.hasVRSupport ? 'Yes' : 'No' }}</p>
 
+  <!-- Buttons for Edit and Delete -->
+  <div *ngIf="gamingConsole">
+    <button (click)="editItem(gamingConsole.id)">Edit</button>
+    <button (click)="deleteItem(gamingConsole.id)">Delete</button>
+  </div>
 </div>
