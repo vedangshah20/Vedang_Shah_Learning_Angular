@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { GamingConsole } from '../GamingConsole';
-import { NgForOf } from '@angular/common';
+import {NgForOf, NgIf} from '@angular/common';
 import { ContentListItemComponent } from '../content-list-item/content-list-item.component';
 import { GamingConsoleService } from '../services/gaming-console.service';
 
@@ -9,7 +9,8 @@ import { GamingConsoleService } from '../services/gaming-console.service';
   standalone: true,
   imports: [
     NgForOf,
-    ContentListItemComponent
+    ContentListItemComponent,
+    NgIf
   ],
   templateUrl: './content-list.component.html',
   styleUrls: ['./content-list.component.css']
@@ -17,6 +18,7 @@ import { GamingConsoleService } from '../services/gaming-console.service';
 export class ContentListComponent implements OnInit {
   gamingConsoleList: GamingConsole[] = [];
   selectedConsole?: GamingConsole; // Property to hold the selected console
+  isViewingWholeList: any;
 
   constructor(private gamingConsoleService: GamingConsoleService) {
     // This constructor is primarily used for dependency injection
@@ -32,5 +34,13 @@ export class ContentListComponent implements OnInit {
 
   selectConsole(console: GamingConsole): void {
     this.selectedConsole = console; // Method to set the selected console
+  }
+
+  editItem(console: GamingConsole) {
+    
+  }
+
+  deleteItem(id: number) {
+    
   }
 }

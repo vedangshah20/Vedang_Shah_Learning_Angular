@@ -21,13 +21,7 @@ export class ContentListItemComponent {
 
   @Input() console!: GamingConsole | undefined;
 
-  editItem(id: number) {
-    
-  }
 
-  deleteItem(id: number) {
-    
-  }
 }
 
 
