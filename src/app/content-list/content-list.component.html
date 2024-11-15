@@ -1,7 +1,8 @@
 <ul>
-  <li *ngFor="let console of gamingConsoleList; odd as isOdd; even as isEven">
-    <app-content-list-item [gamingConsole]="console" [isOdd]="isOdd"></app-content-list-item>
-    <button *ngIf="isViewingWholeList" (click)="editItem(console)">Edit</button>
-    <button *ngIf="isViewingWholeList" (click)="deleteItem(console.id)">Delete</button>
+  <li *ngFor="let console of gamingConsoleList" >
+    <app-content-list-item [gamingConsole]="console"></app-content-list-item>
+    <button (click)="editItem(console)">Edit</button>
+    <button (click)="deleteItem(console.id)">Delete</button>
+
   </li>
 </ul>

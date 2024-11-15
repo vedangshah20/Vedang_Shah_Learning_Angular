@@ -6,6 +6,7 @@ import { ContentListComponent } from "./content-list/content-list.component";
 import { ContentListItemComponent } from "./content-list-item/content-list-item.component";
 import { GamingConsoleService } from './services/gaming-console.service';
 
+
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -20,7 +21,8 @@ export class AppComponent implements OnInit {
   gamingConsoleList: GamingConsole[] = []; // List of gaming consoles
   selectedConsoleId = 4; // Choose the ID you want to display
 
-  constructor(private gamingConsoleService: GamingConsoleService) {}
+  constructor(private gamingConsoleService: GamingConsoleService) {
+  }
 
   ngOnInit(): void {
     this.gamingConsoleService.getConsoleById(this.selectedConsoleId).subscribe(console => {
@@ -32,4 +34,5 @@ export class AppComponent implements OnInit {
       this.gamingConsoleList = consoles;
     });
   }
+
 }

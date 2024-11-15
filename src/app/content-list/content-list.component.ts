@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import {NgClass, NgForOf, NgIf, NgStyle} from '@angular/common';
 import { GamingConsole } from '../GamingConsole';
-import {NgForOf, NgIf} from '@angular/common';
 import { ContentListItemComponent } from '../content-list-item/content-list-item.component';
 import { GamingConsoleService } from '../services/gaming-console.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-content-list',
@@ -10,18 +11,21 @@ import { GamingConsoleService } from '../services/gaming-console.service';
   imports: [
     NgForOf,
     ContentListItemComponent,
-    NgIf
+    NgIf,
+    NgStyle,
+    NgClass
   ],
   templateUrl: './content-list.component.html',
   styleUrls: ['./content-list.component.css']
 })
 export class ContentListComponent implements OnInit {
   gamingConsoleList: GamingConsole[] = [];
-  selectedConsole?: GamingConsole; // Property to hold the selected console
-  isViewingWholeList: any;
+  selectedConsole?: GamingConsole;
 
-  constructor(private gamingConsoleService: GamingConsoleService) {
-    // This constructor is primarily used for dependency injection
+  constructor(
+    private gamingConsoleService: GamingConsoleService,
+    private router: Router) {
+
   }
 
   ngOnInit(): void {
@@ -33,14 +37,15 @@ export class ContentListComponent implements OnInit {
   }
 
   selectConsole(console: GamingConsole): void {
-    this.selectedConsole = console; // Method to set the selected console
+    this.selectedConsole = console;
   }
 
   editItem(console: GamingConsole) {
-    
+    this.router.navigate(['/modify-list-item', console.id]);
   }
 
   deleteItem(id: number) {
-    
+    this.gamingConsoleService.deleteConsole(id);
+    this.gamingConsoleList = this.gamingConsoleList.filter(console => console.id !== id);
   }
 }

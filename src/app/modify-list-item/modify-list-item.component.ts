@@ -1,58 +1,63 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
-import { PageNotFoundComponent } from "../page-not-found/page-not-found.component";
-import {MockContent} from "../data/mock-content";
 import {ActivatedRoute, Router} from "@angular/router";
+import { GamingConsole } from '../GamingConsole';
+import { GamingConsoleService } from '../services/gaming-console.service';
 
 @Component({
   selector: 'app-modify-list-item',
   standalone: true,
   imports: [
-    PageNotFoundComponent,
     ReactiveFormsModule
   ],
   templateUrl: './modify-list-item.component.html',
   styleUrls: ['./modify-list-item.component.css']
 })
-export class ModifyListItemComponent {
+export class ModifyListItemComponent implements OnInit {
 
   modifyForm: FormGroup;
+  console!: GamingConsole;
 
-
-  constructor(private fb: FormBuilder, private route: ActivatedRoute, private router: Router) {
-
-    // Initialize the form with empty fields
+  constructor(private gamingConsoleService: GamingConsoleService,
+              private fb: FormBuilder,
+              private router: Router,
+              private route: ActivatedRoute) {
     this.modifyForm = this.fb.group({
-      itemName: ['', [Validators.required, Validators.minLength(3)]],
-      itemDescription: ['', [Validators.required, Validators.minLength(5)]],
-      itemPrice: ['', [Validators.required, Validators.pattern('^[0-9]*$')]]
+      id: [null],
+      brand: ['', Validators.required],
+      model: ['', Validators.required],
+      releaseYear: ['', Validators.required],
+      storageCapacity: ['', Validators.required],
+      hasVRSupport: [false]
     });
+  }
 
-    // Get the console ID from route parameters
-    const consoleId = +this.route.snapshot.paramMap.get('id')!;
-
-    // Find the console by its ID
-    const console = MockContent.gamingConsoleList.find(console => console.id === consoleId);
-
-    // If the console is found, populate the form with its data
-    if (console) {
-      this.modifyForm.patchValue({
-        itemName: console.model,  // Assuming itemName corresponds to the model
-        itemDescription: `${console.brand} ${console.model}`,  // Concatenating brand and model for description
-        itemPrice: console.storageCapacity  // Assuming itemPrice corresponds to the storageCapacity
+  ngOnInit(): void {
+    const id = this.route.snapshot.paramMap.get('id');
+    if (id) {
+      this.gamingConsoleService.getConsoleById(+id).subscribe(console => {
+        if (console) {
+          this.console = console;
+          this.modifyForm.patchValue(console);
+        }
       });
-    } else {
-      // If console not found, redirect to a "not found" page or handle accordingly
-      this.router.navigate(['/not-found']);
     }
   }
 
-
-  onSubmit() {
-
+  onSubmit(): void {
+    const console: GamingConsole = this.modifyForm.value;
+    if (console.id) {
+      this.gamingConsoleService.updateConsole(console).subscribe(() => {
+        this.router.navigate(['/consoles']);
+        this.modifyForm.reset();
+      });
+    } else {
+      console.id = this.gamingConsoleService.generateNewId();
+      this.gamingConsoleService.addConsole(console).subscribe(() => {
+        this.router.navigate(['/consoles']);
+        this.modifyForm.reset();
+      });
+    }
   }
 
-  navigateToHome() {
-
-  }
 }

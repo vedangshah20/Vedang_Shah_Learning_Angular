@@ -1,10 +1,6 @@
 <div class="container">
   <h2>{{ title }}</h2>
 
-  <!-- Display the selected console details -->
-  <div *ngIf="selectedConsole">
-    <app-content-list-item [gamingConsole]="selectedConsole"></app-content-list-item>
-  </div>
 
   <nav>
     <ul>
@@ -14,7 +10,6 @@
     </ul>
   </nav>
   <router-outlet></router-outlet>
-
 
   <div *ngFor="let gamingConsole of gamingConsoleList">
     <app-content-list-item [gamingConsole]="gamingConsole"></app-content-list-item>
