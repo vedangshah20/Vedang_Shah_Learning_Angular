@@ -9,6 +9,7 @@ import {
   TitleCasePipe,
   UpperCasePipe
 } from "@angular/common";
+import {StorageUnitPipe} from "../storage-unit.pipe";
 
 @Component({
   selector: 'app-content-list-item',
@@ -20,7 +21,8 @@ import {
     DatePipe,
     CurrencyPipe,
     LowerCasePipe,
-    TitleCasePipe
+    TitleCasePipe,
+    StorageUnitPipe
   ],
   templateUrl: './content-list-item.component.html',
   styleUrl: './content-list-item.component.css'

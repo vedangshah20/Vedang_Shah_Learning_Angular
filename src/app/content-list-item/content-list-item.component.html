@@ -2,6 +2,6 @@
   <p>{{ gamingConsole.id }}</p>
   <p>{{ gamingConsole.model | titlecase }} ({{ gamingConsole.brand | uppercase }})</p>
   <p>Release Year: {{ gamingConsole.releaseYear | date: 'yyyy' }}</p>
-  <p>Storage Capacity: {{ gamingConsole.storageCapacity }} GB</p>
+  <p>Storage Capacity: {{ gamingConsole.storageCapacity | storageUnit }}</p>
   <p>VR Support: {{ gamingConsole.hasVRSupport ? 'YES' : 'NO' }}</p>
 </div>
