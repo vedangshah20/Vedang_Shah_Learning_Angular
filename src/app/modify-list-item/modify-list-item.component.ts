@@ -3,12 +3,14 @@ import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from '@angular/
 import {ActivatedRoute, Router} from "@angular/router";
 import { GamingConsole } from '../GamingConsole';
 import { GamingConsoleService } from '../services/gaming-console.service';
+import {MouseHoverDirective} from "../directives/mouse-hover.directive";
 
 @Component({
   selector: 'app-modify-list-item',
   standalone: true,
   imports: [
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MouseHoverDirective
   ],
   templateUrl: './modify-list-item.component.html',
   styleUrls: ['./modify-list-item.component.css']

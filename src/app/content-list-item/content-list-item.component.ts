@@ -10,6 +10,7 @@ import {
   UpperCasePipe
 } from "@angular/common";
 import {StorageUnitPipe} from "../storage-unit.pipe";
+import {MouseHoverDirective} from "../directives/mouse-hover.directive";
 
 @Component({
   selector: 'app-content-list-item',
@@ -22,7 +23,8 @@ import {StorageUnitPipe} from "../storage-unit.pipe";
     CurrencyPipe,
     LowerCasePipe,
     TitleCasePipe,
-    StorageUnitPipe
+    StorageUnitPipe,
+    MouseHoverDirective
   ],
   templateUrl: './content-list-item.component.html',
   styleUrl: './content-list-item.component.css'

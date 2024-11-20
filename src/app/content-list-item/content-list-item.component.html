@@ -4,4 +4,8 @@
   <p>Release Year: {{ gamingConsole.releaseYear | date: 'yyyy' }}</p>
   <p>Storage Capacity: {{ gamingConsole.storageCapacity | storageUnit }}</p>
   <p>VR Support: {{ gamingConsole.hasVRSupport ? 'YES' : 'NO' }}</p>
+
+  <div [appMouseHover]="'lightblue'">
+    <p>For more details about the {{ gamingConsole.model }} visit the store </p>
+  </div>
 </div>
