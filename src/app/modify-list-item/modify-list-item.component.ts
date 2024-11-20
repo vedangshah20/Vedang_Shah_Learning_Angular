@@ -4,13 +4,16 @@ import {ActivatedRoute, Router} from "@angular/router";
 import { GamingConsole } from '../GamingConsole';
 import { GamingConsoleService } from '../services/gaming-console.service';
 import {MouseHoverDirective} from "../directives/mouse-hover.directive";
+import {HighlightOnFocusDirective} from "../directives/highlight-on-focus.directive";
 
 @Component({
   selector: 'app-modify-list-item',
   standalone: true,
   imports: [
     ReactiveFormsModule,
-    MouseHoverDirective
+    MouseHoverDirective,
+    HighlightOnFocusDirective
+
   ],
   templateUrl: './modify-list-item.component.html',
   styleUrls: ['./modify-list-item.component.css']
