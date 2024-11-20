@@ -1,8 +1,7 @@
 <div [ngClass]="{'even-item': !isOdd, 'odd-item': isOdd}">
-  <p>{{gamingConsole.id}}</p>
-  <p>{{ gamingConsole.model }} ({{ gamingConsole.brand }})</p>
-  <p>Release Year: {{ gamingConsole.releaseYear }}</p>
+  <p>{{ gamingConsole.id }}</p>
+  <p>{{ gamingConsole.model | titlecase }} ({{ gamingConsole.brand | uppercase }})</p>
+  <p>Release Year: {{ gamingConsole.releaseYear | date: 'yyyy' }}</p>
   <p>Storage Capacity: {{ gamingConsole.storageCapacity }} GB</p>
-  <p>VR Support: {{ gamingConsole.hasVRSupport ? 'Yes' : 'No' }}</p>
-
+  <p>VR Support: {{ gamingConsole.hasVRSupport ? 'YES' : 'NO' }}</p>
 </div>

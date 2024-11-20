@@ -1,13 +1,26 @@
 import {Component, Input} from '@angular/core';
 import {GamingConsole} from "../GamingConsole";
-import {NgClass, NgOptimizedImage} from "@angular/common";
+import {
+  CurrencyPipe,
+  DatePipe,
+  LowerCasePipe,
+  NgClass,
+  NgOptimizedImage,
+  TitleCasePipe,
+  UpperCasePipe
+} from "@angular/common";
 
 @Component({
   selector: 'app-content-list-item',
   standalone: true,
   imports: [
     NgClass,
-    NgOptimizedImage
+    NgOptimizedImage,
+    UpperCasePipe,
+    DatePipe,
+    CurrencyPipe,
+    LowerCasePipe,
+    TitleCasePipe
   ],
   templateUrl: './content-list-item.component.html',
   styleUrl: './content-list-item.component.css'
